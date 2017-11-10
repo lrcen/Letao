@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/userManage.css">
 </head>
 
 <body>
@@ -78,8 +79,28 @@
                     <li>
                         <a href="javascript:;">后台管理系统</a>
                     </li>
-                    <li class="active">首页</li>
+                    <li class="active">用户管理</li>
                 </ol>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th width="10%">序号</th>
+                        <th width="30%">用户名</th>
+                        <th width="30%">手机号</th>
+                        <th width="20%">状态</th>
+                        <th width="10%">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+
+            <div class="paginator text-right">
+                <ul id="paginator">
+
+                </ul>
             </div>
         </div>
     </div>
@@ -104,11 +125,52 @@
         </div>
     </div>
 
+    <div class="modal fade" tabindex="-1" role="dialog" id="changemodal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title">系统提示 - System Prompt</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p><i class="glyphicon glyphicon-info-sign"></i>&nbsp;&nbsp;<span></span> 或 取消 - Make your choice</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary btn-confirm">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script type="text/html" id="userTmp">
+        {{each rows value i}}
+        <tr>
+            <td>{{(page - 1) * size + i + 1}}</td>
+            <td>{{value.username}}</td>
+            <td>{{value.mobile}}</td>
+            <td>{{value.isDelete === 1 ? '正常' : '禁用'}}</td>
+            <td data-id='{{value.id}}'>
+                {{if value.isDelete === 1}}
+                <button class="btn btn-danger btn-sm">禁用</button>
+                {{else}}
+                <button class="btn btn-success btn-sm">启用</button>
+                {{/if}}
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+
 
     <script src="./lib/jquery/jquery.js"></script>
     <script src="./lib/bootstrap/js/bootstrap.js"></script>
     <script src="./lib/nprogress/nprogress.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
     <script src="./js/common.js"></script>
+    <script src="./js/userManage.js"></script>
 </body>
 
 </html>

@@ -6,7 +6,7 @@ html,body {
 
 .bgcolor {
     background-color: #222d32;
-    font: 12px '幼圆';
+    font: 12px '幼圆' !important;
 }
 
 * {

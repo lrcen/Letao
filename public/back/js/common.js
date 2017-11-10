@@ -31,14 +31,15 @@ $(document).ajaxStop(function() {
 
 
     var nowtime = new Date();
+    var hour = nowtime.getHours();
     var when = $(".greet p:first-of-type span");
-    if(nowtime.getHours() >= 6 && nowtime.getHours() <= 11) {
+    if(hour >= 6 && hour <= 10) {
         when.html('早上');
-    }else if(nowtime.getHours() > 11 && nowtime.getHours() <= 14) {
+    }else if(hour > 10 && hour <= 13) {
         when.html("中午");
-    }else if(nowtime.getHours() > 14 && nowtime.getHours() <= 19) {
+    }else if(hour > 13 && hour <= 18) {
         when.html("下午");
-    }else if(nowtime.getHours() > 19 && nowtime.getHours() <= 24) {
+    }else if(hour > 18 && hour <= 23) {
         when.html("晚上");
     }else {
         when.html("凌晨");
