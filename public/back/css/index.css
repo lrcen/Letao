@@ -1,5 +1,5 @@
 #aside {
-    position: absolute;
+    position: fixed;
     width: 20%;
     height: 100%;
     background-color: #222d32;
@@ -66,7 +66,7 @@
     line-height: 50px;
     border: 5px solid transparent;
     display: block;
-    color: #ccc;
+    color: #aaa;
 }
 
 .nav ul li a.active {
@@ -77,6 +77,10 @@
 
 .nav ul li .sorts {
     padding-left: 50px;
+}
+
+.nav ul li .sorts a.highl {
+    color: #fff;
 }
 
 /* 右边版块 */
@@ -91,8 +95,18 @@
 }
 
 #detail-infos .topbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80%;
     height: 50px;
     background-color: #3c8dbc;
+    z-index: 99;
+    transition: all 0.5s linear;
+}
+
+#detail-infos .topbar.active {
+    width: 100%;
 }
 
 #detail-infos .topbar a {
@@ -104,7 +118,7 @@
 }
 
 #detail-infos .content {
-    padding: 20px;
+    padding: 70px;
 }
 
 #modal .modal-body p {

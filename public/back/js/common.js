@@ -57,6 +57,7 @@ $(document).ajaxStop(function() {
 
         $('#aside').toggleClass('active');
         $('#detail-infos').toggleClass('active');
+        $('#detail-infos .topbar').toggleClass('active');
     });
 
     $('#detail-infos .topbar a:last-of-type').on('click', function() {

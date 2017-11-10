@@ -55,7 +55,8 @@ $(function() {
         });
     })
 
-    $(".btn-push").on('click', function() {
+    //当表单校验成功时
+    $form.on('success.form.bv', function() {
         $.ajax({
             url: '/category/addTopCategory',
             type: 'post',
@@ -75,4 +76,9 @@ $(function() {
         });
     })  
 
+    //点击取消时
+    $('.btn-cancel').on('click', function() {
+        $form.data('bootstrapValidator').resetForm();
+        $form[0].reset();
+    })
 })

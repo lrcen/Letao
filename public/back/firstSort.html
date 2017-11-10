@@ -49,7 +49,7 @@
                         &nbsp;&nbsp;分类管理
                     </a>
                     <div class="sorts">
-                        <a href="./firstSort.html">一级分类</a>
+                        <a class="highl" href="./firstSort.html">一级分类</a>
                         <a href="./secondSort.html">二级分类</a>
                     </div>
                 </li>
@@ -140,13 +140,13 @@
                         <!-- 输入完成后, 发送请求提交表单中的数据, 但因为表单内部没有提交按钮, 而是在外面, 需要关联起来, 给表单一个id, 给需要的元素一个form属性, 关联id即可 -->
                         <form id="form">
                             <div class="form-group">
-                                <input type="text" name="categoryName" class="form-control" placeholder="分类名称">
+                                <input type="text" name="categoryName" class="form-control" placeholder="一级分类名称">
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" form="form" class="btn btn-default" data-dismiss="modal">取消</button>
-                        <button type="button" form="form" class="btn btn-primary btn-push">添加</button>
+                        <button type="button" form="form" class="btn btn-default btn-cancel" data-dismiss="modal">取消</button>
+                        <button type="submit" form="form" class="btn btn-primary btn-push">添加</button>
                     </div>
                 </div>
             </div>
