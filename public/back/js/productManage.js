@@ -180,4 +180,27 @@ $(function() {
             })
         }
     })
+
+    var data = '';
+    $form.on('success.form.bv', function() {
+        data = $form.serialize();
+        // console.log(data);
+
+        data += '&picName1=' + $('.img-box .preview')[0].dataset.name + '&picAddr1=' + $('.img-box .preview')[0].dataset.addr;
+        data += '&picName2=' + $('.img-box .preview')[1].dataset.name + '&picAddr2=' + $('.img-box .preview')[1].dataset.addr;
+        data += '&picName3=' + $('.img-box .preview')[2].dataset.name + '&picAddr3=' + $('.img-box .preview')[2].dataset.addr;
+
+        $.ajax({
+            url: '/product/addProduct',
+            type: 'post',
+            data: data,
+            success: function(backData) {
+                $('#addmodal').modal('hide');
+
+                pageNum = 1;
+                
+                render();
+            }
+        })
+    })
 });
