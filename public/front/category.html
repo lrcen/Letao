@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>乐淘商城 - 分类页</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./lib/mui/css/mui.css">
+    <link rel="stylesheet" href="./lib/fa/css/font-awesome.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/category.css">
+</head>
+
+<body>
+
+    <section class="container">
+        <header id="header">
+            <!-- javascript:  不执行跳转, 执行里面的js代码  平时没有写, 就是不跳转也没有执行代码 -->
+            <a href="javascript: history.go(-1);" class="h_left">
+                <i class="mui-icon mui-icon-back"></i>
+            </a>
+            <h4>乐淘分类</h4>
+            <a href="#" class="h_right">
+                <i class="fa fa-search"></i>
+            </a>
+        </header>
+        <section id="content">
+            <div class="firstsort">
+                <div class="mui-scroll-wrapper">
+                    <ul class="mui-scroll">
+
+                    </ul>
+                </div>
+            </div>
+            <div class="secondsort">
+                <div class="mui-scroll-wrapper">
+                    <ul class="mui-scroll">
+
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <footer id="footer">
+            <ul class="mui-clearfix">
+                <li>
+                    <a href="./index.html">
+                        <i class="fa fa-home"></i>
+                        <p>首页</p>
+                    </a>
+                </li>
+                <li class="now">
+                    <a href="./category.html">
+                        <i class="fa fa-bars"></i>
+                        <p>分类</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="./shoppingcar.html">
+                        <i class="fa fa-shopping-cart"></i>
+                        <p>购物车</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="./userinfo.html">
+                        <i class="fa fa-user"></i>
+                        <p>用户中心</p>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+    </section>
+
+    <script type="text/html" id="firstsortTmp">
+    {{each rows value i}}
+    <li data-id="{{value.id}}" class="{{i === 0 ? 'active' : ''}}"><a href="javascript:;">{{value.categoryName}}</a></li>
+    {{/each}}
+    </script>
+
+    <script type="text/html" id="secondsortTmp">
+    {{if rows.length === 0}}
+    <p>抱歉, 暂无更多数据 - Sorry, No more data</p>
+    {{/if}}
+    {{each rows value i}}
+    <li>
+        <a href="javascript:;">
+            <img src="{{value.brandLogo ? value.brandLogo : 'images/none.png'}}" alt="">
+            <p>{{value.brandName}}</p>
+        </a>
+    </li>
+    {{/each}}
+    </script>
+
+    <script src="./lib/zepto/zepto.min.js"></script>
+    <script src="./lib/mui/js/mui.js"></script>
+    <script src="../back/lib/artTemplate/template-web.js"></script>
+    <script src="./js/category.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
