@@ -2,11 +2,11 @@
 
 html,body {
     height: 100%;
+    font: 14px '幼圆';
 }
 
 .bgcolor {
     background-color: #222d32;
-    font: 12px '幼圆' !important;
 }
 
 * {
@@ -48,4 +48,15 @@ img {
 }
 .clearfix {
     *zoom: 1;
+}
+
+.table.table-bordered {
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.table.table-bordered th,
+.table.table-bordered td {
+    vertical-align: middle;
+    text-align: center;
 }

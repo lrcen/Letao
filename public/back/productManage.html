@@ -8,8 +8,10 @@
     <title>Letao后台管理系统 - 商品管理页</title>
     <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/productManage.css">
 </head>
 
 <body>
@@ -81,6 +83,27 @@
                     <li class="active">商品管理</li>
                 </ol>
             </div>
+            <button class="btn btn-default btn-add">添加商品</button>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>商品名称</th>
+                        <th>商品描述</th>
+                        <th>商品库存</th>
+                        <th>商品尺码</th>
+                        <th>商品状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+            <div class="paginator text-right">
+                <ul id="paginator"></ul>
+            </div>
         </div>
     </div>
 
@@ -104,11 +127,100 @@
         </div>
     </div>
 
+    <div class="modal fade" tabindex="-1" role="dialog" id="addmodal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">添加商品 - Add the goods</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="" id="form" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <div class="dropdown">
+                                <button class="btn btn-default btn-choose"  type="button" data-toggle="dropdown">
+                                    <span class="choosesort">选择二级分类</span>
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                </ul>
+                                <input type="hidden" name="brandId" id="brandId">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="proName" placeholder="商品名称" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3" placeholder="商品描述" name="proDesc"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="num" placeholder="商品库存" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="size" placeholder="商品尺码" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="oldPrice" placeholder="商品原价" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="price" placeholder="商品现价" class="form-control">
+                        </div>
+                        <div class="form-group upload">
+                                <button class="btn btn-default">上传图片</button>
+                                <input type="file" name="pic1" id="btn-pic" data-url="/product/addProductPic" multiple>
+                        </div>
+                        <div class="form-group img-box">
+
+                            <input type="hidden" name="forcheck" id="forcheck">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" form="form" class="btn btn-default btn-cancel" data-dismiss="modal">取消</button>
+                    <button type="submit" form="form" class="btn btn-primary btn-push">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/html" id="prolistTmp">
+    {{each rows value i}}
+    <tr>
+        <td width="10%">{{(page - 1) * size + i + 1}}</td>
+        <td width="30%">{{value.proName}}</td>
+        <td width="20%">{{value.proDesc}}</td>
+        <td width="10%">{{value.num}}</td>
+        <td width="10%">{{value.size}}</td>
+        <td width="10%">{{value.statu === 1 ? '上架中' : '已下架'}}</td>
+        <td width="10%">
+            {{if value.statu === 1}}
+            <button class="btn btn-danger btn-sm">下架商品</button>
+            {{else}}
+            <button class="btn btn-primary btn-sm">编辑商品</button>
+            {{/if}}
+        </td>
+    </tr>
+    {{/each}}
+    </script>
+
+    <script type="text/html" id="secondSortTmp">
+        {{each rows value i}}
+            <li><a href="javascript:;" data-id="{{value.id}}">{{value.brandName}}</a></li>
+        {{/each}}
+    </script>
 
     <script src="./lib/jquery/jquery.js"></script>
+    <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+    <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
     <script src="./lib/bootstrap/js/bootstrap.js"></script>
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
     <script src="./lib/nprogress/nprogress.js"></script>
     <script src="./js/common.js"></script>
+    <script src="./js/productManage.js"></script>
 </body>
 
 </html>

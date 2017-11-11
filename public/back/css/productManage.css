@@ -1,0 +1,42 @@
+.upload {
+    position: relative;
+    width: 82px;
+    height: 34px;
+}
+
+.upload input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.img-box img {
+    width: 100px;
+}
+
+.img-box .preview {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    width: 100px;
+    width: 100px;
+    line-height: 100px; 
+    margin-right: 10px;
+}
+
+.img-box .preview i {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: rotateZ(0deg);
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.img-box .preview:hover i {
+    transform: rotateZ(180deg);
+    opacity: 1;
+}
