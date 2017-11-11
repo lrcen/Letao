@@ -1,0 +1,56 @@
+.mui-slider-group {
+    height: 100% !important;
+}
+
+.mui-slider-group > div {
+    height: 275px !important;
+}
+
+.mui-slider-group > div img {
+    height: 275px !important;
+}
+
+.nav {
+    padding: 10px;
+    width: 100%;
+}
+
+.nav ul li {
+    float: left;
+    width: 33.333%;
+}
+
+.nav ul li a {
+    display: block;
+}
+
+.goods-list {
+    width: 100%;
+    padding: 10px;
+}
+
+.goods-list ul li {
+    float: left;
+    width: 48%;
+    margin-bottom: 10px;
+}
+
+.goods-list ul li:nth-child(even) {
+    margin-left: 4%;
+}
+
+.goods-list ul li a {
+    display: block;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.goods-list .now-price {
+    color: red;
+}
+
+.goods-list .old-price {
+    text-decoration: line-through;
+}
