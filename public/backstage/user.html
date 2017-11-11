@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户管理</title>
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+    <div id="aside">
+        <div class="topbar">
+            <h3>
+                <a href="index.html">Letao</a>
+            </h3>
+        </div>
+        <div class="manage">
+            <img src="./images/timg.jpg" alt="">
+            <strong>Lrcen</strong>
+        </div>
+        <div class="nav">
+            <ul>
+                <li>
+                    <a href="./user.html" class="active">
+                        <i class="glyphicon glyphicon-user"></i>
+                        用户管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="glyphicon glyphicon-list"></i>
+                        分类管理
+                    </a>
+                    <div class="sort" style="display: none">
+                        <a href="./firstSort.html">一级分类</a>
+                        <a href="./secondSort.html">二级分类</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="./product.html">
+                        <i class="glyphicon glyphicon-tags"></i>
+                        商品管理
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="section">
+        <div class="topbar">
+            <a href="javascript:;" class="pull-left">
+                <i class="glyphicon glyphicon-align-justify"></i>
+            </a>
+            <a href="javascript:;" class="pull-right">
+                <i class="glyphicon glyphicon-log-out"></i>
+            </a>
+        </div>
+        <div class="content">
+            <div class="position">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#">后台管理系统</a>
+                    </li>
+                    <li class="active">用户管理</li>
+                </ol>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>用户名</th>
+                        <th>手机号</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <div class="paginator text-right">
+                <ul id="paginator"></ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="logoutmodal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">系统提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p>你确定要退出后台管理系统吗?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary btn-logout">确定</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="modifymodal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">系统提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p>你确定要执行此操作吗?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary btn-sure">确定</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <script type="text/html" id="userTmp">
+        {{each rows v i}}
+        <tr>
+            <td>{{(page - 1) * size + i + 1}}</td>
+            <td>{{v.username}}</td>
+            <td>{{v.mobile}}</td>
+            <td>{{v.isDelete === 0 ? '禁用' : '正常'}}</td>
+            <td data-id="{{v.id}}">
+                {{if v.isDelete === 1}}
+                <button class="btn btn-danger btn-sm">禁用</button>
+                {{else}}
+                <button class="btn btn-success btn-sm">启用</button>
+                {{/if}}
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+
+    <script src="./lib/jquery/jquery.js"></script>
+    <script src="./lib/bootstrap/js/bootstrap.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/user.js"></script>
+</body>
+
+</html>

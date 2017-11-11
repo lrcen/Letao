@@ -73,6 +73,31 @@ $(function() {
         }
     });
 
+    // $('#btn-pic').on('change', function() {
+        // console.log($(this).prop('files')[0]); //prop('files')获取图片的信息, 拿到图片的名字
+    //     var file = document.querySelector('#btn-pic').files[0]; //原生的方式
+    //     // console.log(file);
+    //     // 2. 创建fileReader
+    //     var reader = new FileReader();
+    //     //3. 加载并读取file
+    //     reader.readAsDataURL(file);
+    //     //4. 使用file
+    //     reader.onload = function() {
+    //         console.log(reader.result);
+    //         // $.ajax({
+    //         //     url: '/category/addSecondCategoryPic',
+    //         //     type: 'post',
+    //         //     data: {
+    //         //         pic1: reader.result
+    //         //     },
+    //         //     success: function(backData) {
+    //         //         console.log(backData);
+    //         //     }
+    //         // })
+    //     }
+        
+    // })
+
     //表单校验
     var $form = $('form');
     $form.bootstrapValidator({

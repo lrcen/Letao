@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,html {
+    height: 100%;
+}
+
+body {
+    font: 12px '幼圆';
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
+
+ul, ol, dl {
+    list-style: none;
+}
+
+input {
+    outline: 0 none;
+    border: 0 none;
+}
+
+img {
+    vertical-align: middle;
+    border: 0 none;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix {
+    *zoom: 1;
+}
+
+
+#aside {
+    position: absolute;
+    width: 20%;
+    background-color: #222d32;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transition: all 0.5s linear;
+}
+
+#aside.active {
+    left: -20%;
+}
+
+#aside .topbar {
+    height: 50px;
+    background-color: #367fa9;
+}
+
+#aside .topbar h3 {
+    margin: 0;
+    text-align: center;
+}
+
+#aside .topbar h3 a {
+    line-height: 40px;
+    display: block;
+    color: #fff;
+    font-size: 24px;
+}
+
+.manage {
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.manage img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.nav {
+    margin-top: 50px;
+}
+
+.nav a {
+    display: block;
+    line-height: 50px;
+    color: #aaa;
+    font-size: 14px;
+    padding-left: 100px;
+    border: 5px solid transparent;
+}
+
+.nav a.active {
+    color: #fff;
+    border-left-color: #367fa9;
+    background: rgba(0, 0, 0, 0.3)
+}
+
+.nav .sort a {
+    padding-left: 150px
+}
+
+.nav .sort a.highl {
+    color: #fff;
+}
+
+#section {
+    transition: all 0.5s linear;
+    margin-left: 20%;
+}
+
+#section.active {
+    margin-left: 0;
+}
+
+#section .topbar {
+    height: 50px;
+    background-color: #367fa9;
+}
+
+#section .topbar a {
+    color: #fff;
+    font-size: 16px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+#section .content {
+    padding: 20px;
+}
+
+#section .content .position {
+    margin-bottom: 50px;
+}
+
+.table.table-bordered {
+    margin-top: 100px;
+}
+
+.table.table-bordered th,
+.table.table-bordered td {
+    vertical-align: middle;
+    text-align: center;
+}
