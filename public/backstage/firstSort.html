@@ -126,11 +126,13 @@
                 </div>
                 <div class="modal-body">
                     <form id="form">
-                        <input type="text" class="form-control" placeholder="分类名称" name="categoryName">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="分类名称" name="categoryName" id='categoryName'>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" form='form' class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" form='form' class="btn btn-default btn-cancel" data-dismiss="modal">取消</button>
                     <button type="submit" form='form' class="btn btn-primary btn-push">添加</button>
                 </div>
             </div>

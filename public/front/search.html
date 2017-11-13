@@ -5,41 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>乐淘商城 - 分类页</title>
+    <title>乐淘商城 - 搜索</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./lib/mui/css/mui.css">
     <link rel="stylesheet" href="./lib/fa/css/font-awesome.css">
     <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="./css/category.css">
+    <link rel="stylesheet" href="./css/search.css">
 </head>
 
 <body>
 
     <section class="container">
         <header id="header">
-            <!-- javascript:  不执行跳转, 执行里面的js代码  平时没有写, 就是不跳转也没有执行代码 -->
             <a href="javascript: history.go(-1);" class="h_left">
                 <i class="mui-icon mui-icon-back"></i>
             </a>
-            <h4>乐淘分类</h4>
-            <a href="./search.html" class="h_right">
-                <i class="fa fa-search"></i>
-            </a>
+            <h4>搜索中心</h4>
         </header>
         <section id="content">
-            <div class="firstsort">
-                <div class="mui-scroll-wrapper">
-                    <ul class="mui-scroll">
-
-                    </ul>
-                </div>
-            </div>
-            <div class="secondsort">
-                <div class="mui-scroll-wrapper">
-                    <ul class="mui-scroll">
-
-                    </ul>
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <div class="search">
+                        <input type="text" placeholder="搜索关键字 - Search key">
+                        <button class="btn-search mui-btn-primary">搜 索</button>
+                    </div>
+                    <div class="history">
+                        
+                    </div>
                 </div>
             </div>
         </section>
@@ -51,7 +43,7 @@
                         <p>首页</p>
                     </a>
                 </li>
-                <li class="now">
+                <li>
                     <a href="./category.html">
                         <i class="fa fa-bars"></i>
                         <p>分类</p>
@@ -73,32 +65,33 @@
         </footer>
     </section>
 
-    <script type="text/html" id="firstsortTmp">
-    {{each rows value i}}
-    <li data-id="{{value.id}}" class="{{i === 0 ? 'active' : ''}}"><a href="javascript:;">{{value.categoryName}}</a></li>
-    {{/each}}
+
+    <script type="text/html" id="historyTmp">
+        {{if arr.length === 0}}
+        <p>暂无更多历史记录 - No more historical records</p>
+        {{else}}
+        <div class="title mui-clearfix">
+            <a href="javascript:;" class="mui-pull-left">搜索历史</a>
+            <a href="javascript:;" class="mui-pull-right fa fa-trash clear-history"> 清空记录</a>
+        </div>
+        <div class="content">
+            <ul>
+                {{each arr value i}}
+                <li>
+                    <a href="#" class="mui-pull-left">{{i + 1}}. {{value}}</a>
+                    <i data-index="{{i}}" class="mui-icon mui-icon-closeempty mui-pull-right remove-history"></i>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        {{/if}}
     </script>
 
-    <script type="text/html" id="secondsortTmp">
-    {{if rows.length === 0}}
-    <p>抱歉, 暂无更多数据 - Sorry, No more data</p>
-    {{/if}}
-    {{each rows value i}}
-    <li>
-        <a href="javascript:;">
-            <img src="{{value.brandLogo ? value.brandLogo : 'images/none.png'}}" alt="">
-            <p>{{value.brandName}}</p>
-        </a>
-    </li>
-    {{/each}}
-    </script>
-
-    <script src="./lib/zepto/zepto.min.js"></script>
     <script src="./lib/mui/js/mui.js"></script>
+    <script src="./lib/zepto/zepto.min.js"></script>
     <script src="../back/lib/artTemplate/template-web.js"></script>
-    <script src="./js/category.js"></script>
     <script src="./js/common.js"></script>
-    <script src="./js/index.js"></script>
+    <script src="./js/search.js"></script>
 </body>
 
 </html>
