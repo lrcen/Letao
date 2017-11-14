@@ -75,6 +75,10 @@ $(function() {
         localStorage.setItem('search-history', JSON.stringify(historyArr));
 
         render();
+
+        location.href="product.html?productid=" + val;
     });
+
+    
 });
 

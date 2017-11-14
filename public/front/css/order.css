@@ -1,0 +1,82 @@
+.mui-slider-group {
+    height: 100% !important;
+}
+
+.mui-slider-group > div {
+    height: 460px !important;
+}
+
+.mui-slider-group > div img {
+    height: 460px !important;
+}
+
+#content .title {
+    padding: 10px;
+    font-size: 16px;
+    line-height: 20px;
+    border-top: 1px solid #ccc;
+}
+
+#content .price {
+    padding: 10px;
+    font-size: 14px;
+    border-top: 1px solid #ccc;
+}
+
+#content .price .now-price {
+    font-size: 20px;
+    color: red;
+}
+
+#content .size {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    font-size: 14px;
+}
+
+#content .size ul {
+    margin-top: 10px;
+}
+
+#content .size ul li {
+    float: left;
+    width: 26px;
+    height: 26px;
+    border: 1px solid #eee;
+    text-align: center;
+    line-height: 26px;
+    margin-right: 10px;
+}
+
+#content .size ul li.active {
+    background-color: #069;
+    color: #fff;
+}
+
+#content .num {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    font-size: 14px;
+}
+
+#content .detail {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    font-size: 14px;
+}
+
+#footer a {
+    line-height: 70px;
+    color: #fff;
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+#footer .operation {
+    padding-top: 20px;
+    padding-right: 10px;
+}
+
+#footer .operation button {
+    margin-right: 10px;
+}

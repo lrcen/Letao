@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>乐淘商城 - 搜索</title>
+    <title>乐淘商城 - 商品列表</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./lib/mui/css/mui.css">
     <link rel="stylesheet" href="./lib/fa/css/font-awesome.css">
     <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/search.css">
+    <link rel="stylesheet" href="./css/product.css">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
             <a href="javascript: history.go(-1);" class="h_left">
                 <i class="mui-icon mui-icon-back"></i>
             </a>
-            <h4>搜索中心</h4>
+            <h4>商品列表</h4>
         </header>
         <section id="content">
             <div class="mui-scroll-wrapper">
@@ -29,8 +29,29 @@
                         <input type="text" placeholder="搜索关键字 - Search key">
                         <button class="btn-search mui-btn-primary">搜 索</button>
                     </div>
-                    <div class="history">
-                        
+
+                    <div class="sort">
+                        <a href="javascript:;">上架时间
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <a href="javascript:;" data-type="price">价格
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <a href="javascript:;" data-type="num">库存
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <a href="javascript:;">折扣
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                    </div>
+
+                    <div class="lists">
+                        <ul class="mui-clearfix">
+                            <!-- 模拟加载效果 -->
+                            <div class="loading">
+                                <canvas id="canvas" width="30" height="30"></canvas>
+                            </div>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -66,24 +87,23 @@
     </section>
 
 
-    <script type="text/html" id="historyTmp">
-        {{if arr.length === 0}}
-        <p>暂无更多历史记录 - No more historical records</p>
+    <script type="text/html" id="listsTmp">
+        {{if data.length === 0}}
+        <p>暂无更多商品 - No more goods</p>
         {{else}}
-        <div class="title mui-clearfix">
-            <a href="javascript:;" class="mui-pull-left">搜索历史</a>
-            <a href="javascript:;" class="mui-pull-right fa fa-trash clear-history"> 清空记录</a>
-        </div>
-        <div class="content">
-            <ul>
-                {{each arr value i}}
-                <li>
-                    <a href="./product.html?productid={{value}}" class="mui-pull-left">{{i + 1}}. {{value}}</a>
-                    <i data-index="{{i}}" class="mui-icon mui-icon-closeempty mui-pull-right remove-history"></i>
-                </li>
-                {{/each}}
-            </ul>
-        </div>
+        {{each data value i}}
+        <li>
+            <a href="./order.html?productid={{value.id}}">
+                <img src="{{value.pic[0].picAddr}}" alt="">
+                <p class="mui-ellipsis-2">{{value.proName}}</p>
+                <p class="price">
+                    <span class="now-price">&yen;{{value.price}}</span>
+                    <span class="old-price">&yen;{{value.oldPrice}}</span>
+                </p>
+                <button class="btn mui-btn-primary mui-btn-outlined">立即抢购</button>
+            </a>
+        </li>
+        {{/each}}
         {{/if}}
     </script>
 
@@ -91,7 +111,7 @@
     <script src="./lib/zepto/zepto.min.js"></script>
     <script src="../back/lib/artTemplate/template-web.js"></script>
     <script src="./js/common.js"></script>
-    <script src="./js/search.js"></script>
+    <script src="./js/product.js"></script>
 </body>
 
 </html>
