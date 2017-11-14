@@ -76,7 +76,7 @@ $(function() {
 
         render();
 
-        location.href="product.html?productid=" + val;
+        location.href="product.html?keyword=" + val;
     });
 
     

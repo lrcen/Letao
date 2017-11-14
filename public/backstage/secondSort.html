@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>首页</title>
+    <title>分类页</title>
     <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/secondSort.css">
 </head>
 
 <body>
@@ -32,13 +33,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:;">
+                    <a href="javascript:;" class="active">
                         <i class="glyphicon glyphicon-list"></i>
                         分类管理
                     </a>
-                    <div class="sort" style="display: none">
+                    <div class="sort">
                         <a href="./firstSort.html">一级分类</a>
-                        <a href="./secondSort.html">二级分类</a>
+                        <a href="./secondSort.html" class="highl">二级分类</a>
                     </div>
                 </li>
                 <li>
@@ -66,9 +67,34 @@
                     <li>
                         <a href="#">后台管理系统</a>
                     </li>
-                    <li class="active">首页</li>
+                    <li>
+                        <a href="#">分类管理</a>
+                    </li>
+                    <li class="active">二级分类</li>
                 </ol>
             </div>
+
+            <button class="btn btn-default btn-add">添加分类</button>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th width="10%">序号</th>
+                        <th width="30%">一级分类名称</th>
+                        <th width="30%">二级分类名称</th>
+                        <th width="30%">二级分类LOGO</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+
+                </table>
+                <div class="paginator text-right">
+                    <ul id="paginator">
+
+                    </ul>
+                </div>
         </div>
     </div>
 
@@ -95,10 +121,26 @@
     </div>
     <!-- /.modal -->
 
+    <script type="text/html" id="secondsortTmp">
+        {{each rows value i}}
+        <tr>
+            <td>{{(page - 1) * size + 1 + i}}</td>
+            <td>{{value.categoryName}}</td>
+            <td>{{value.brandName}}</td>
+            <td>
+                <img src="{{value.brandLogo}}" alt="">
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+
     <script src="./lib/jquery/jquery.js"></script>
     <script src="./lib/echarts/echarts.min.js"></script>
     <script src="./lib/bootstrap/js/bootstrap.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
     <script src="./js/common.js"></script>
+    <script src="./js/secondSort.js"></script>
 </body>
 
 </html>

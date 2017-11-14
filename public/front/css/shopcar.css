@@ -1,0 +1,71 @@
+.container {
+    padding-bottom: 100px;
+}
+
+#content ul li {
+    padding: 10px 10px 10px 30px;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+#content ul li input {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -20px;
+}
+
+#content ul li p {
+    margin-bottom: 10px;
+    height: 30px;
+}
+
+#content .pic img {
+    width: 90px;
+    height: 90px;
+}
+
+
+#content .infos {
+    overflow: hidden;
+    padding-left: 15px;
+}
+
+#content .infos .title {
+    color: #333;
+}
+
+#content .infos .price .now {
+    color: red;
+}
+
+#content .infos .price .old {
+    text-decoration: line-through;
+    font-size: 12px;
+}
+
+#content .mui-table-cell {
+    width: 365px;
+}
+
+#pay {
+    height: 30px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #eee;
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    width: 100%;
+    padding-left: 10px;
+    line-height: 30px;
+}
+
+#pay a {
+    padding: 0 15px;
+    background-color: orangered;
+    color: #fff;
+}
+
+#pay strong {
+    color: red;
+}

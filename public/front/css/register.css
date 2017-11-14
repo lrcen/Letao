@@ -1,0 +1,39 @@
+#content {
+    padding-top: 20px;
+}
+
+.rows {
+    padding: 10px;
+    font-size: 14px;
+}
+
+.rows input {
+    margin: 0;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.rows input[name="vCode"] {
+    width: 60%;
+}
+
+.rows .btn-getcode {
+    width: 38%;
+    border-radius: 10px;
+    height: 40px;
+}
+
+.rows .btn-getcode.disabled {
+    background-color: #ccc;
+    border-color: #ccc;
+}
+
+.rows .btn-register {
+    width: 100%;
+    border-radius: 10px;
+    height: 40px;
+}
+
+.other {
+    padding: 10px;
+}

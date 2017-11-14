@@ -29,7 +29,7 @@ $(function () {
 
 
     //获取url中的参数
-    var proName = tools.getParamInUrlByKey('productid');
+    var proName = tools.getParamInUrlByKey('keyword');
     // console.log(proName);
     //显示在搜索框上
     $('.search input').val(proName);
@@ -81,8 +81,6 @@ $(function () {
     startLoading(); //开始进入页面, 加载
     setTimeout(function () {
         render(); //一秒后, 渲染数据
-        end = 0;
-        start = 0; //重置
     }, 1000);
 
     //搜索功能
@@ -94,6 +92,32 @@ $(function () {
             return false;
         }
 
+        //保存历史记录
+        var history = localStorage.getItem('search-history');
+        var historyArr = JSON.parse(history) || [];  //没有历史记录就给一个空数组
+
+        var index = historyArr.indexOf(val);
+        if(historyArr.indexOf(val) !== -1) {
+            historyArr.splice(index, 1);
+        }
+
+        if(historyArr.length >= 20) {
+            historyArr.pop();
+        }
+
+        historyArr.unshift(val);
+        localStorage.setItem('search-history', JSON.stringify(historyArr));
+
+        window.history.pushState({'url': location.href}, null, 'product.html?keyword=' + val); //可以在不刷新页面的情况下, 更改url中的参数, 当然更多关于该api的用法看浏览器收藏夹
+        // window.addEventListener('popstate', function(e) {
+        //     var currentState = window.history.state;
+        //     console.log(currentState);
+        //     console.log(e.state);
+        // }, false);
+
+        //暂时不知道怎么回退到前一页
+
+
         proName = val;
 
         //此时, ul里的内容已经是一开始渲染的数据了, 就是说原本写的div和canvas就不见了
@@ -102,8 +126,6 @@ $(function () {
         startLoading();
         setTimeout(function () {
             render();
-            end = 0;
-            start = 0;
         }, 1000);
     })
 
@@ -158,8 +180,6 @@ $(function () {
             startLoading();
             setTimeout(function () {
                 render();
-                end = 0;
-                start = 0;
             }, 1000);
         }
 

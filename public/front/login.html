@@ -5,34 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>乐淘商城 - 搜索</title>
+    <title>乐淘商城 - 登录</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./lib/mui/css/mui.css">
     <link rel="stylesheet" href="./lib/fa/css/font-awesome.css">
     <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/search.css">
+    <link rel="stylesheet" href="./css/login.css">
 </head>
 
 <body>
 
     <section class="container">
         <header id="header">
-            <a href="javascript: history.go(-1);" class="h_left">
+            <a href="javascript: history(-1);" class="h_left">
                 <i class="mui-icon mui-icon-back"></i>
             </a>
-            <h4>搜索中心</h4>
+            <h4>登 录</h4>
         </header>
         <section id="content">
-            <div class="mui-scroll-wrapper">
-                
-                <div class="mui-scroll">
-                    <div class="search">
-                        <input type="text" placeholder="搜索关键字 - Search key">
-                        <button class="btn-search mui-btn-primary">搜 索</button>
+            <div class="login">
+                <form class="mui-input-group">
+                    <div class="mui-input-row">
+                        <label>用户名</label>
+                        <input type="text" class="mui-input-clear" name="username" placeholder="请输入用户名" autocomplete="off">
                     </div>
-                    <div class="history">
-                        
+                    <div class="mui-input-row">
+                        <label>密码</label>
+                        <input type="password" class="mui-input-password" name="password" placeholder="请输入密码">
                     </div>
+                    <div class="mui-button-row">
+                        <button type="button" class="mui-btn mui-btn-primary btn-login">登录</button>
+                        <button type="button" class="mui-btn mui-btn-danger">取消</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="other mui-clearfix">
+                <div class="remme mui-pull-left">
+                    <input type="checkbox">
+                    记住我
+                </div>
+                <div class="res mui-pull-right">
+                    没有账号?
+                    <a href="register.html">免费注册</a>
                 </div>
             </div>
         </section>
@@ -51,12 +66,12 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./shoppingcar.html">
+                    <a href="./shopcar.html">
                         <i class="fa fa-shopping-cart"></i>
                         <p>购物车</p>
                     </a>
                 </li>
-                <li>
+                <li class="now">
                     <a href="./user.html">
                         <i class="fa fa-user"></i>
                         <p>用户中心</p>
@@ -66,33 +81,10 @@
         </footer>
     </section>
 
-
-    <script type="text/html" id="historyTmp">
-        {{if arr.length === 0}}
-        <p>暂无更多历史记录 - No more historical records</p>
-        {{else}}
-        <div class="title mui-clearfix">
-            <a href="javascript:;" class="mui-pull-left">搜索历史</a>
-            <a href="javascript:;" class="mui-pull-right fa fa-trash clear-history"> 清空记录</a>
-        </div>
-        <div class="content">
-            <ul>
-                {{each arr value i}}
-                <li>
-                    <a href="./product.html?productid={{value}}" class="mui-pull-left">{{i + 1}}. {{value}}</a>
-                    <i data-index="{{i}}" class="mui-icon mui-icon-closeempty mui-pull-right remove-history"></i>
-                </li>
-                {{/each}}
-            </ul>
-        </div>
-        {{/if}}
-    </script>
-
-    <script src="./lib/mui/js/mui.js"></script>
     <script src="./lib/zepto/zepto.min.js"></script>
-    <script src="../back/lib/artTemplate/template-web.js"></script>
+    <script src="./lib/mui/js/mui.js"></script>
     <script src="./js/common.js"></script>
-    <script src="./js/search.js"></script>
+    <script src="./js/login.js"></script>
 </body>
 
 </html>

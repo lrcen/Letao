@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>乐淘商城 - 购物车</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./lib/mui/css/mui.css">
+    <link rel="stylesheet" href="./lib/fa/css/font-awesome.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/shopcar.css">
+</head>
+
+<body>
+
+    <section class="container">
+        <header id="header">
+            <a href="javascript: history(-1);" class="h_left">
+                <i class="mui-icon mui-icon-back"></i>
+            </a>
+            <h4>购物车</h4>
+        </header>
+        <section id="content">
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <ul>
+                        <li class="mui-table-view-cell mui-transitioning">
+                            <div class="mui-slider-right mui-disabled">
+                                <a class="mui-btn mui-btn-grey mui-icon mui-icon-compose"></a>
+                                <a class="mui-btn mui-btn-red mui-icon mui-icon-trash"></a>
+                            </div>
+                            <div class="mui-slider-handle">
+                                <div class="mui-table-cell">
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="pay">
+            <span>当前总金额 : &yen;
+                <strong>00.00</strong> 元</span>
+            <a href="javascript:;" class="mui-pull-right">提交订单</a>
+        </section>
+        <footer id="footer">
+            <ul class="mui-clearfix">
+                <li>
+                    <a href="./index.html">
+                        <i class="fa fa-home"></i>
+                        <p>首页</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="./category.html">
+                        <i class="fa fa-bars"></i>
+                        <p>分类</p>
+                    </a>
+                </li>
+                <li class="now">
+                    <a href="./shopcar.html">
+                        <i class="fa fa-shopping-cart"></i>
+                        <p>购物车</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="./user.html">
+                        <i class="fa fa-user"></i>
+                        <p>用户中心</p>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+    </section>
+
+    <script type="text/html" id="userTmp">
+        <a href="javascript:;">
+            <img class="mui-media-object mui-pull-left" src="../back/images/timg.jpg">
+            <div class="mui-media-body">
+                {{username}}
+                <p class='mui-ellipsis'>已绑定手机号: {{mobile}}</p>
+            </div>
+        </a>
+    </script>
+
+    <script type="text/html" id="cartTmp">
+        {{each data value i}}
+        <li class="mui-clearfix mui-table-view-cell mui-transitioning">
+            <div class="mui-slider-right mui-disabled">
+                <a class="mui-btn mui-btn-grey mui-icon mui-icon-compose" data-size="{{value.size}}" data-num="{{value.num}}" data-productNum="{{value.productNum}}" data-productSize="{{value.productSize}}" data-id="{{value.id}}"></a>
+                <a data-id="{{value.id}}" class="mui-btn mui-btn-red mui-icon mui-icon-trash"></a>
+            </div>
+            <div class="mui-slider-handle">
+                <div class="mui-table-cell">
+                    <input type="checkbox" class="choose" data-price="{{value.price}}" data-num="{{value.num}}">
+                    <div class="pic mui-pull-left">
+                        <img src="{{value.pic[0].picAddr}}" alt="">
+                    </div>
+                    <div class="infos">
+                        <p class="mui-ellipsis-2 title">{{value.proName}}</p>
+                        <p class="price">
+                            <span class="now">&yen;{{value.price}}元</span>
+                            <span class="old">&yen;{{value.oldPrice}}元</span>
+                        </p>
+                        <p class="size">
+                            鞋码 :
+                            <span>{{value.size}}</span>
+                            <span class="mui-pull-right num">{{value.num}}双</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </li>
+        {{/each}}
+    </script>
+
+    <script src="./lib/zepto/zepto.min.js"></script>
+    <script src="./lib/mui/js/mui.js"></script>
+    <script src="../back/lib/artTemplate/template-web.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/shopcar.js"></script>
+</body>
+
+</html>

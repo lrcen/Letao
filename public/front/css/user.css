@@ -1,0 +1,17 @@
+
+.mui-media-body {
+    padding: 8px 0;
+}
+
+.mui-media-body p {
+    font-size: 12px;
+}
+
+.logout {
+    padding: 20px 10px;
+}
+
+.logout button {
+    width: 100%;
+    font-size: 12px;
+}

@@ -158,7 +158,7 @@ $(function() {
     })
 
     $('#btn-pic').fileupload({
-        dateType: 'json',
+        dataType: 'json',
         done: function(e, data) {
             // console.log(data.result);
             $('.img-box').prepend('<div class="preview" data-name="'+data.result.picName+'" data-addr="'+data.result.picAddr+'"> <i class="glyphicon glyphicon-remove"></i> <img src="'+data.result.picAddr+'"> </div>');

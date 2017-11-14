@@ -3,37 +3,47 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>乐淘商城 - 搜索</title>
+    <title>乐淘商城 - 用户中心</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./lib/mui/css/mui.css">
     <link rel="stylesheet" href="./lib/fa/css/font-awesome.css">
     <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/search.css">
+    <link rel="stylesheet" href="./css/user.css">
 </head>
 
 <body>
 
     <section class="container">
         <header id="header">
-            <a href="javascript: history.go(-1);" class="h_left">
+            <a href="javascript: history(-1);" class="h_left">
                 <i class="mui-icon mui-icon-back"></i>
             </a>
-            <h4>搜索中心</h4>
+            <h4>个人中心</h4>
+            <a href="javascript:;" class="h_right">
+                <i class="mui-icon mui-icon-gear"></i>
+            </a>
         </header>
         <section id="content">
-            <div class="mui-scroll-wrapper">
-                
-                <div class="mui-scroll">
-                    <div class="search">
-                        <input type="text" placeholder="搜索关键字 - Search key">
-                        <button class="btn-search mui-btn-primary">搜 索</button>
-                    </div>
-                    <div class="history">
-                        
-                    </div>
-                </div>
+            <div class="userinfo">
+                <ul class="mui-table-view">
+                    <li class="mui-table-view-cell mui-media">
+
+                    </li>
+                    <li class="mui-table-view-cell">
+                        <a class="mui-navigate-right">账号安全</a>
+                    </li>
+                    <li class="mui-table-view-cell">
+                        <a href="./shopcar.html" class="mui-navigate-right">我的购物车</a>
+                    </li>
+                    <li class="mui-table-view-cell">
+                        <a class="mui-navigate-right">收货地址管理</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="logout">
+                <button class="btn btn-default">退 出</button>
             </div>
         </section>
         <footer id="footer">
@@ -56,7 +66,7 @@
                         <p>购物车</p>
                     </a>
                 </li>
-                <li>
+                <li class="now">
                     <a href="./user.html">
                         <i class="fa fa-user"></i>
                         <p>用户中心</p>
@@ -66,33 +76,21 @@
         </footer>
     </section>
 
-
-    <script type="text/html" id="historyTmp">
-        {{if arr.length === 0}}
-        <p>暂无更多历史记录 - No more historical records</p>
-        {{else}}
-        <div class="title mui-clearfix">
-            <a href="javascript:;" class="mui-pull-left">搜索历史</a>
-            <a href="javascript:;" class="mui-pull-right fa fa-trash clear-history"> 清空记录</a>
-        </div>
-        <div class="content">
-            <ul>
-                {{each arr value i}}
-                <li>
-                    <a href="./product.html?productid={{value}}" class="mui-pull-left">{{i + 1}}. {{value}}</a>
-                    <i data-index="{{i}}" class="mui-icon mui-icon-closeempty mui-pull-right remove-history"></i>
-                </li>
-                {{/each}}
-            </ul>
-        </div>
-        {{/if}}
+    <script type="text/html" id="userTmp">
+        <a href="javascript:;">
+            <img class="mui-media-object mui-pull-left" src="../back/images/timg.jpg">
+            <div class="mui-media-body">
+                {{username}}
+                <p class='mui-ellipsis'>已绑定手机号: {{mobile}}</p>
+            </div>
+        </a>
     </script>
 
-    <script src="./lib/mui/js/mui.js"></script>
     <script src="./lib/zepto/zepto.min.js"></script>
+    <script src="./lib/mui/js/mui.js"></script>
     <script src="../back/lib/artTemplate/template-web.js"></script>
     <script src="./js/common.js"></script>
-    <script src="./js/search.js"></script>
+    <script src="./js/user.js"></script>
 </body>
 
 </html>

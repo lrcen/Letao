@@ -1,0 +1,30 @@
+.login {
+    padding: 0 10px;
+    font-size: 14px;
+}
+
+.login label {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
+}
+
+.login input {
+    font-size: 14px;
+}
+
+.login button:first-of-type {
+    margin-right: 20px;
+}
+
+.login button:last-of-type {
+    margin-left: 20px;
+}
+
+.other {
+    padding: 20px 10px;
+}
+
+.other input {
+    vertical-align: -3px;
+}
